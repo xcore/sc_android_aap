@@ -2,7 +2,7 @@
 # compiled for. It either refers to an XN file in the source directories
 # or a valid argument for the --target option when compiling.
 
-TARGET = XC-1
+TARGET = xc_aap
 
 # The APP_NAME variable determines the name of the final .xe file. It should
 # not include the .xe postfix. If left blank the name will default to 
@@ -18,29 +18,21 @@ APP_NAME = aap
 # If the variable XCC_MAP_FLAGS is set it overrides the flags passed to 
 # xcc for the final link (mapping) stage.
 
-XCC_FLAGS = -O0
+XCC_FLAGS = -O3 -lxscope -save-temps -g -report -Xmapper --map -Xmapper MAPFILE
+XCC_FLAGS += -DBOARD_XR_IPOD_DOCK_V2 -DHW_2V0
 
-VERBOSE = 1
-
-XMOS_MAKE_PATH = ../..
+VERBOSE = 0
 
 # The USED_MODULES variable lists other module used by the application. 
+USED_MODULES = module_usbhost_lite
+export LLD_HW_VERSION=2V0
 
-#USED_MODULES = module_usbhost_lite
-
-#LIBRARIES = UsbHostLLD_hw2v0
-
-#MODULE_XCC_FLAGS = $(XCC_FLAGS) -O3 -Wall
-
-#LIB_XCC_FLAGS_UsbHostLLD_hw2v0 = -O3 -Wall -DUIFM_MODE=2 -DHW_2V0
-
-#EXPORT_SOURCE_DIRS = src include
 #=============================================================================
 # The following part of the Makefile includes the common build infrastructure
 # for compiling XMOS applications. You should not need to edit below here.
 
 # Use the main Makefile from module_xmos_common
-
+XMOS_MAKE_PATH ?= ../..
 include $(XMOS_MAKE_PATH)/xcommon/module_xcommon/build/Makefile.common
 
 clean: clean_common
