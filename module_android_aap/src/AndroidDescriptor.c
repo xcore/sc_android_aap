@@ -28,6 +28,12 @@ High Speed device @ 6 (0xFA130000): ............................................
 #define EP_DESC_COUNT   2
 #define IF_DESC_COUNT   1
 
+/* Define VID and PID to match */
+const int vendorIDMask  = 0xFFFF; // match full VID
+const int vendorID      = 0x18D1; // Google VID
+const int productIDMask = 0xFFFE; // match all but lsb
+const int productID;    = 0x2D00; // match 0x2D00 or 0x2D01
+
 int nDeviceEPs = EP_DESC_COUNT;
 s_usb_endpoint deviceEPs[EP_DESC_COUNT] =
 {
