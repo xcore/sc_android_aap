@@ -1,4 +1,4 @@
-*/.build_*/*
+*/.build*/*
 */bin/*
 *.o
 *.xe
@@ -8,3 +8,5 @@
 *.i
 *.a
 *.metadata
+*.d
+*.*~
