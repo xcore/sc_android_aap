@@ -1,5 +1,8 @@
+#include <xccompat.h>
 #include "USBHostLLD.h"
 #include "usb_descriptors.h"
+#include "AAP_if.h"
+#include "dummyFns.h"
 
 /*
 
@@ -32,7 +35,7 @@ High Speed device @ 6 (0xFA130000): ............................................
 const int vendorIDMask  = 0xFFFF; // match full VID
 const int vendorID      = 0x18D1; // Google VID
 const int productIDMask = 0xFFFE; // match all but lsb
-const int productID;    = 0x2D00; // match 0x2D00 or 0x2D01
+const int productID     = 0x2D00; // match 0x2D00 or 0x2D01
 
 int nDeviceEPs = EP_DESC_COUNT;
 s_usb_endpoint deviceEPs[EP_DESC_COUNT] =
@@ -63,9 +66,9 @@ s_usb_endpoint deviceEPs[EP_DESC_COUNT] =
         0, // bInterval Unset
         (int (*)(streaming_chanend, char[], int, int, int))&dummyrx // we don't want to do anything with data that has gone OUT
     }
-}
+};
 
-int nDeviceInterfaces = IF_DESC_COUNT ;
+int nDeviceInterfaces = IF_DESC_COUNT;
 s_usb_interface deviceInterfaces[IF_DESC_COUNT] =
 {
     {
@@ -83,4 +86,5 @@ s_usb_interface deviceInterfaces[IF_DESC_COUNT] =
       (int (*)(streaming_chanend))&dummyflush,
       (void (*)(void))&dummyinit,
     }
-}
+};
+
