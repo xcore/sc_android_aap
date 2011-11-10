@@ -24,7 +24,7 @@ XCC_FLAGS += -DBOARD_XR_IPOD_DOCK_V2 -DHW_2V0
 VERBOSE = 0
 
 # The USED_MODULES variable lists other module used by the application. 
-USED_MODULES = module_usbhost_lite
+USED_MODULES = module_usbhost_lite module_android_aap
 export LLD_HW_VERSION=2V0
 
 #=============================================================================

@@ -27,7 +27,6 @@ modifications to the code are still covered by the copyright notice above.
 Include files
 ------------------------------------------------------------------------------*/
 #include <xs1.h>
-#include "global.h"
 #include "remote_cmds.h"
 #include "remote.h"
 
