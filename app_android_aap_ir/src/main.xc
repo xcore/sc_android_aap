@@ -140,6 +140,10 @@ static void application_thread(streaming chanend cCtrl[NUM_CTRL_CHANENDS],
    timer tSOF;
    int now;
    tSOF :> now;
+   
+   /* request disconnection notification from USB Manager */
+   cCtrl[0] <: 1;
+   cCtrl[0] :> int _;
 
    /* set USB Host to use internal SOF timing */
    cSOFGen <: 0;
