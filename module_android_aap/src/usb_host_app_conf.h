@@ -11,10 +11,13 @@
 #define TIMED_EP_COUNT 0
 
 /* Initial get descriptor length to try, will retry if length is longer */
-#define INITIAL_GET_DESC_LEN         64
+#define INITIAL_GET_DEV_DESC_LEN         18
+
+/* Initial get descriptor length to try, will retry if length is longer */
+#define DEFAULT_EP0_PIPE_WIDTH         64
 
 /* Initial get configuration descriptor length to try, will retry if length is longer */
-#define INITIAL_GET_CONF_DESC_LEN    250
+#define INITIAL_GET_CONF_DESC_LEN    255
 
 /* enable hook for VID/PID match failure */
 #define USBHOST_VID_PID_HOOK_ON

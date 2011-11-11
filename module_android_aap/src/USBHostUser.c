@@ -1,6 +1,7 @@
 #include "usb_descriptors.h"
 #include "USBHostLLD.h" 
 #include "usb_host_global.h"
+#include "usb_host_app_conf.h"
 
 #define ACC_GET_PROTOCOL   51 //33
 #define ACC_SEND_STRING    52 //34
@@ -27,7 +28,7 @@ int USBHost_user_vid_pid_fail( DeviceDescriptor *devicedesc, int vendorIDMask, i
     
     // Get the protocol first, should be equal to 1
     // Stage 1: Get protocol
-    USBLLD_ControlTransferIn(0, BRT_TYPE_VENDOR, BRT_RECIPIENT_DEVICE, ACC_GET_PROTOCOL, 0, 0, 2, 255);
+    USBLLD_ControlTransferIn(0, BRT_TYPE_VENDOR, BRT_RECIPIENT_DEVICE, ACC_GET_PROTOCOL, 0, 0, 255, DEFAULT_EP0_PIPE_WIDTH );
     
     if (WaitForResponse(&usbTrans))
     {
@@ -51,7 +52,7 @@ int USBHost_user_vid_pid_fail( DeviceDescriptor *devicedesc, int vendorIDMask, i
         if (rv) return 2; // error sending a string
         
         // Stage 3: Put in Acc mode & restart
-        USBLLD_ControlTransferInDir(0, BRT_TYPE_VENDOR, BRT_RECIPIENT_DEVICE, ACC_MODE_START, 0, 0,0, 0, 255);
+        USBLLD_ControlTransferInDir(0, BRT_TYPE_VENDOR, BRT_RECIPIENT_DEVICE, ACC_MODE_START, 0, 0, 0, 0, DEFAULT_EP0_PIPE_WIDTH);
         
         if (WaitForResponse(&usbTrans))
         {
