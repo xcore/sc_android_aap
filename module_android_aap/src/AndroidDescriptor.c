@@ -19,6 +19,26 @@
 /*------------------------------------------------------------------------------
  Manifest constants
  ------------------------------------------------------------------------------*/
+/*
+Descriptors from an Android Device from MAC OS X USB Prober
+High Speed device @ 6 (0xFA130000): ............................................Composite device: "Nexus One" 
+   Port Information:   0x0018 
+   Device Descriptor   
+   Configuration Descriptor (current config)   
+       Length (and contents):   32 
+       Number of Interfaces:   1 
+       Configuration Value:   1 
+       Attributes:   0xC0 (self-powered) 
+       MaxPower:   500 ma 
+       Interface #0 - Vendor-specific .........................................."Android Accessory Interface" 
+           Alternate Setting   0 
+           Number of Endpoints   2 
+           Interface Class:   255   (Vendor-specific) 
+           Interface Subclass;   255   (Vendor-specific) 
+           Interface Protocol:   0 
+           Endpoint 0x83 - Bulk Input   
+           Endpoint 0x03 - Bulk Output
+*/
 #define SAMSUNG_GOOGLE_NEXUS_S
 
 #define EP_DESC_COUNT   2
