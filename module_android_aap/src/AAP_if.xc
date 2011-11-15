@@ -1,19 +1,82 @@
+// Copyright (c) 2011, XMOS Ltd, All rights reserved
+// This software is freely distributable under a derivative of the
+// University of Illinois/NCSA Open Source License posted in
+// LICENSE.txt and at <http://github.xcore.com/>
+
+/*------------------------------------------------------------------------------
+ Include files
+ ------------------------------------------------------------------------------*/
 #include "USBHostLLD.h"
 
-/* Handle requests from the application for this interface */
-int android_ctrl( streaming chanend c, int reqVal, int timeNow)
+/*------------------------------------------------------------------------------
+ Extern Variables
+ ------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+ Manifest constants
+ ------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+ Typedefs
+ ------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+ Global Variables
+ ------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+ Static Variables
+ ------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+ Prototypes
+ ------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+ Implementation
+ -----------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+ Name: android_ctrl
+ Purpose:
+ Input:
+ Output:
+ Notes: Handle requests from the application for this interface.
+ e.g. To register with the device, send data etc...
+ -----------------------------------------------------------------------------*/
+int android_ctrl(streaming chanend c, int reqVal, int timeNow)
 {
-    /* Handle requests from the application thread via a channel
-     *   e.g. To register with the device, send data etc
-     */
-    
-    return 0;
+   int rtnval;
+   char pkt1[3];
+   int pkt[3];
+
+   c :> pkt[0];
+   c :> pkt[1];
+   c :> pkt[2];
+
+   pkt1[0] = pkt[0];
+   pkt1[1] = pkt[1];
+   pkt1[2] = pkt[2];
+
+   rtnval = USBLLD_BulkTransfer_Out(1, 0x07, 3, pkt1);
+   return 0;
 }
 
-int android_rx(streaming chanend c, unsigned char data[], int datalen, int ackstate) 
+/*------------------------------------------------------------------------------
+ Name: android_rx
+ Purpose:
+ Input:
+ Output:
+ Notes: Handle any data that comes in response to an IN, send to application
+ via a channel
+ -----------------------------------------------------------------------------*/
+int android_rx(streaming chanend c,
+               unsigned char data[],
+               int datalen,
+               int ackstate,
+               int timedTrans)
 {
-    /* Handle any data that comes in response to an IN, send to application via a channel */
-    
-    return 0;
+   return 0;
 }
 
+/*============================================================================*/

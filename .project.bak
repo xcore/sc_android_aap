@@ -1,6 +1,6 @@
 <?XL version="1.0" encoding="UTF-8"?>
 <projectDescription>
-    <name>sc_android_aap</name>
+    <name>xcore_template</name>
     <comment />
     <projects>
         <project>sc_usb_host</project>
@@ -32,7 +32,7 @@
                 </dictionary>
                 <dictionary>
                     <key>org.eclipse.cdt.make.core.buildLocation</key>
-                    <value>${workspace_loc:/sc_android_aap}</value>
+                    <value>${workspace_loc:/xcore_template}</value>
                 </dictionary>
                 <dictionary>
                     <key>org.eclipse.cdt.make.core.cleanBuildTarget</key>

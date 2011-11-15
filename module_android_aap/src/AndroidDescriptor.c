@@ -1,42 +1,42 @@
+// Copyright (c) 2011, XMOS Ltd, All rights reserved
+// This software is freely distributable under a derivative of the
+// University of Illinois/NCSA Open Source License posted in
+// LICENSE.txt and at <http://github.xcore.com/>
+
+/*------------------------------------------------------------------------------
+ Include files
+ ------------------------------------------------------------------------------*/
 #include <xccompat.h>
 #include "USBHostLLD.h"
 #include "usb_descriptors.h"
 #include "AAP_if.h"
 #include "dummyFns.h"
 
-/*
+/*------------------------------------------------------------------------------
+ Extern Variables
+ ------------------------------------------------------------------------------*/
 
-Descriptors from an Android Device from MAC OS X USB Prober
-
-High Speed device @ 6 (0xFA130000): .............................................   Composite device: "Nexus One" 
-   Port Information:   0x0018 
-   Device Descriptor   
-   Configuration Descriptor (current config)   
-       Length (and contents):   32 
-       Number of Interfaces:   1 
-       Configuration Value:   1 
-       Attributes:   0xC0 (self-powered) 
-       MaxPower:   500 ma 
-       Interface #0 - Vendor-specific ..............................................   "Android Accessory Interface" 
-           Alternate Setting   0 
-           Number of Endpoints   2 
-           Interface Class:   255   (Vendor-specific) 
-           Interface Subclass;   255   (Vendor-specific) 
-           Interface Protocol:   0 
-           Endpoint 0x83 - Bulk Input   
-           Endpoint 0x03 - Bulk Output   
-
-*/
+/*------------------------------------------------------------------------------
+ Manifest constants
+ ------------------------------------------------------------------------------*/
+#define SAMSUNG_GOOGLE_NEXUS_S
 
 #define EP_DESC_COUNT   2
 #define IF_DESC_COUNT   1
 
-/* Define VID and PID to match */
+// Define VID and PID to match
 const int vendorIDMask  = 0xFFFF; // match full VID
 const int vendorID      = 0x18D1; // Google VID
 const int productIDMask = 0xFFFE; // match all but lsb
 const int productID     = 0x2D00; // match 0x2D00 or 0x2D01
 
+/*------------------------------------------------------------------------------
+ Typedefs
+ ------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+ Global Variables
+ ------------------------------------------------------------------------------*/
 int nDeviceEPs = EP_DESC_COUNT;
 s_usb_endpoint deviceEPs[EP_DESC_COUNT] =
 {
@@ -88,3 +88,16 @@ s_usb_interface deviceInterfaces[IF_DESC_COUNT] =
     }
 };
 
+/*------------------------------------------------------------------------------
+ Static Variables
+ ------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+ Prototypes
+ ------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+ Implementation
+ -----------------------------------------------------------------------------*/
+
+/*============================================================================*/

@@ -1,41 +1,21 @@
-/*==============================================================================
-Filename:
-Project :
-Author  :
-Version :
-Purpose
---------------------------------------------------------------------------------
+// Copyright (c) 2011, XMOS Ltd, All rights reserved
+// This software is freely distributable under a derivative of the
+// University of Illinois/NCSA Open Source License posted in
+// LICENSE.txt and at <http://github.xcore.com/>
 
-Version History
---------------------------------------------------------------------------------
-
-License
---------------------------------------------------------------------------------
-The copyrights, all other intellectual and industrial property rights are
-retained by XMOS and/or its licensors.
-Terms and conditions covering the use of this code can be found in the Xmos
-End User License Agreement.
-
-Copyright XMOS Ltd 2011
-
-In the case where this code is a modification of existing code under a
-separate license, the separate license terms are shown below. The
-modifications to the code are still covered by the copyright notice above.
-==============================================================================*/
 #ifndef REMOTE_CMDS_H_
 #define REMOTE_CMDS_H_
 /*------------------------------------------------------------------------------
-Include files
-------------------------------------------------------------------------------*/
+ Include files
+ ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-Extern Variables
-------------------------------------------------------------------------------*/
+ Extern Variables
+ ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-Manifest constants
-------------------------------------------------------------------------------*/
-// Values taken from Simple Lingo Context Button Status command
+ Manifest constants
+ ------------------------------------------------------------------------------*/
 #define PLAY_PAUSE  0x00000001
 #define VOL_UP      0x00000002
 #define VOL_DOWN    0x00000004
@@ -56,9 +36,8 @@ Manifest constants
 #define VIDEO       0xffffffff
 
 /*------------------------------------------------------------------------------
-Typedefs
-------------------------------------------------------------------------------*/
-// Define the commands for the iPod
+ Typedefs
+ ------------------------------------------------------------------------------*/
 static const int nButtons = 19;
 typedef enum
 {
@@ -84,18 +63,18 @@ typedef enum
 } e_remotecommands;
 
 /*------------------------------------------------------------------------------
-Global Variables
-------------------------------------------------------------------------------*/
+ Global Variables
+ ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-Static Variables
-------------------------------------------------------------------------------*/
+ Static Variables
+ ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-Prototypes
-------------------------------------------------------------------------------*/
+ Prototypes
+ ------------------------------------------------------------------------------*/
 extern const int simpleContextButtonValues[];
 extern const int extendedButtonValues[];
 
-#endif /*REMOTE_CMDS_H_*/
+#endif // REMOTE_CMDS_H_
 /*============================================================================*/
