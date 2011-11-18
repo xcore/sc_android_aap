@@ -7,5 +7,6 @@ Android Accessory Protocol Using XMOS Draft
    02_aap
    03_demo
    04_phone_app
-   05_todo
+   05_api
+   06_todo
 
