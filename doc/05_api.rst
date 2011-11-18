@@ -4,15 +4,15 @@ AAP API
 Files
 -----
 
-**module_android_aap\src\usb_host_app_conf.h**
+**module_android_aap\\src\\usb_host_app_conf.h**
 
 This file must provide generic USB host defines for your device. It has preprocessor defines that the USB Host will use.
 
-**module_android_aap\src\AAP_if.h**
+**module_android_aap\\src\\AAP_if.h**
 
 This file contains hook functions from USB host in order to follow specified enumeration process and attempt to start the Android device in 'accessory' mode.
 
-**module_android_aap\src\AndroidDescriptor.c**
+**module_android_aap\\src\\AndroidDescriptor.c**
 
 This file contains USB decriptors for the Android device.
 
@@ -21,27 +21,27 @@ Configuration Defines and Constants
 
 **NUM_CTRL_CHANENDS**
 
-This is the number of control channels in your application or the number of interfaces in the descriptor. As we need to work with only one, this is made 1.
+This is the number of control channel ends in your application associated with the number of interfaces in the descriptor. As we need to work with only one, this is defined as 1.
 
 **START_CONFIG_NUM**
 
-Index of the starting configuration we want to work with. Required interface is present in configuration number 0.
+Index of the first configuration we want to request from the device. Required interface is present in configuration number 0.
 
 **TIMED_EP_COUNT**
 
-Maximum number of time endpoints for isochronous and interrupt endpoints. As we are working with bulk endpoints, this is made 0.
+Maximum number of timed endpoints for isochronous and interrupt endpoints. As we are working with bulk endpoints, this defined as 0.
 
 **INITIAL_GET_DEV_DESC_LEN**
 
-Length of the device descriptor. Currently set as 18. Extra descriptor bytes (if any) will be read automatically after reading the first 18 bytes.
+Length of the initial Get Device Descriptor request. Currently set as 18. Extra descriptor bytes (if any) will be read automatically after reading the first 18 bytes. Request responses can be less than this length.
 
 **DEFAULT_EP0_PIPE_WIDTH**
 
-For Full Speed USB this is set as 64.
+For Full Speed USB this is set as 64. This defines the maximum packet response length expected by the  host. Any packets shorter than this indicate the end of the data part of the packet.
 
 **INITIAL_GET_CONF_DESC_LEN**
 
-Length of configuration descriptor. Currently set as 255. Any extra bytes (if any) will be read automatically after reading the initial bytes.
+Length of the initial Get Configuration Descriptor request. Currently set as 255. Any extra bytes (if any) will be read automatically after reading the initial bytes. Configurations request responses can be less than this length.
 
 **RECONNECT_PAUSE**
 
@@ -49,7 +49,7 @@ The amount of time (in mS) between connection / re-connection. Android accessory
 
 **USBHOST_VID_PID_HOOK_ON**
 
-This should be defined for AAP as we need a hook from device descriptor mismatch. This hook will contain the code to start the Android device in accessory mode.
+This should be defined for AAP as we need a hook from device descriptor mismatch. This hook will contain the code to start the Android device in accessory mode. This hook is called when the VID and PID fail to match the defined values.
 
 **ACC_GET_PROTOCOL**
 
@@ -73,11 +73,11 @@ Number of interface descriptors to expect from the Android device. Nexus S Andro
 
 **vendorID**
 
-Vendor ID of the Android device. Nexus S VID is 0x18D1.
+Expected Vendor ID of the Android device. Nexus S VID is 0x18D1.
 
 **productID**
 
-Product ID of the Android device in accessory mode. Nexus S PID should be either 0x2D00 or 0x2D01. The PID of this phone (when not in accessory mode) is 0x4E22.
+Expected Product ID of the Android device in accessory mode. Nexus S PID should be either 0x2D00 or 0x2D01. The PID of this phone (when not in accessory mode) is 0x4E22.
 
 **vendorIDMask**
 
@@ -104,7 +104,7 @@ Prototypes
 USBHost_user_vid_pid_fail
 +++++++++++++++++++++++++
 
-Implementation file: module_android_aap\src\USBHostUser.c
+Implementation file: module_android_aap\\src\\USBHostUser.c
 
 Return type: int
 
@@ -120,12 +120,12 @@ Description:
 
 When the Device descriptor do not match, it might be possible that the Android device is not in accessory mode. This hook is useful to attempt to start the Android device in accessory mode by checking the protocol, introducing accessory, setting the accessory mode (if any) and restarting the enumeration process.
 
-Once the above process is done, the Android device should start in accessory mode satisfying the VID/PID match.
+Once the above process is done, the Android device should start in accessory mode satisfying the VID\/PID match.
 
 android_ctrl
 ++++++++++++
 
-Implementation file: module_android_aap\src\AAP_if.xc
+Implementation file: module_android_aap\\src\\AAP_if.xc
 
 Return type: int
 
@@ -142,7 +142,7 @@ Every time the application thread wants to send data over the USB, it pushes dat
 android_rx
 ++++++++++
 
-Implementation file: module_android_aap\src\AAP_if.xc
+Implementation file: module_android_aap\\src\\AAP_if.xc
 
 Return type: int
 
@@ -156,12 +156,12 @@ Param:
 
 Description:
 
-Handle any data that comes in response to an IN, send to application via a channel.
+Handle any data that comes in response to an IN.
 
 application_thread
 ++++++++++++++++++
 
-Implementation files: app_android_aap_ir\src\main.xc
+Implementation files: app_android_aap_ir\\src\\main.xc
 
 Return type: int
 
@@ -175,3 +175,4 @@ Param:
 Description:
 
 This thread sets up the USB host by requesting disconnection notification, setup VBus and ask USB host to use internal SOF timing. It also interprets IR commands and prepares appropriate packet to send to the USB device. It send this packet over the control channel. The data on this channel is received by the android_ctrl() function.
+
