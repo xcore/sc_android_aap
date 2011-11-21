@@ -1,0 +1,34 @@
+# This module_build_info is for a module that builds to a library
+
+# The LIBRARY variable needs to be set to the name of the library to
+# be built
+
+LIBRARIES = UsbHostLLD_hw2v0 UsbHostLLD_hw1v3 
+
+# You can set flags specifically for your module by using the MODULE_XCC_FLAGS
+# variable. So the following
+#
+#   MODULE_XCC_FLAGS = $(XCC_FLAGS) -O3
+#
+# specifies that everything in the modules should have the application
+# build flags with -O3 appended (so the files will build at
+# optimization level -O3).
+#
+# You can also set MODULE_XCC_C_FLAGS, MODULE_XCC_XC_FLAGS etc..
+
+MODULE_XCC_FLAGS = $(XCC_FLAGS) -O3 -Wall
+
+LIB_XCC_FLAGS_UsbHostLLD_hw1v3 = -O3 -Wall -DUIFM_MODE=2 -DHW_1V3
+
+LIB_XCC_FLAGS_UsbHostLLD_hw2v0 = -O3 -Wall -DUIFM_MODE=2 -DHW_2V0
+
+# The EXPORT_SOURCE_DIRS variable are the directories that contain
+# include files for the library and any source files that you do not
+# want compiled into the library but supplied as source to the
+# application using the module.
+
+EXPORT_SOURCE_DIRS = src include
+
+
+
+EXPORTED = 1
