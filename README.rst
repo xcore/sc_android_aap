@@ -13,7 +13,7 @@ Android Accessory Protocol
 Key Features
 ============
 
-* Recognizes Android (Samsung Google Nexus) phone
+* Recognizes Android (Samsung Google Nexus S) phone
 * Puts (and checks) the phone into accessory mode
 * Processes IR remote command and sends it to Android phone to toggle phone application button objects
 
@@ -39,7 +39,7 @@ Known Issues
 Required Repositories
 ================
 
-* sc_usb_host
+* module_usbhost_lite
 * xcommon git\@github.com:xcore/xcommon.git
 
 Support
