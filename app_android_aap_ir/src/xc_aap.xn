@@ -49,12 +49,12 @@ xsi:schemaLocation="http://www.xmos.com http://www.xmos.com">
     </ExternalDevices>
   
     <!-- XSCOPE -->
-    <Links>
+    <!--Links>
         <Link Encoding="2wire" Delays="4,4" Flags="SOD">
             <LinkEndpoint NodeId="0" Link="X0LA"/>
             <LinkEndpoint RoutingId="0x8000" Chanend="1"/>
         </Link>
-    </Links>
+    </Links-->
 
     <JTAGChain>
         <JTAGDevice NodeId="0"/>
