@@ -99,7 +99,7 @@ int USBHost_user_vid_pid_fail(DeviceDescriptor *devicedesc,
       // Introduce accessory
       rv |= sendString(0, 0, "Google, Inc.", 12);
       rv |= sendString(0, 1, "DemoKit", 7);
-      rv |= sendString(0, 2, "DemoKit Arduino Board", 21);
+      rv |= sendString(0, 2, "XMOS", 4);
       rv |= sendString(0, 3, "1.0", 3);
       rv |= sendString(0, 4, "http://www.android.com", 22);
       rv |= sendString(0, 5, "0000000012345678", 16);
