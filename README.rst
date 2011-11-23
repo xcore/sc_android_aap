@@ -43,4 +43,4 @@ Required Repositories
 Support
 =======
 
-Please contact: vinithmundhra
+Please contact: vinithmundhra for firmware issues. Users wishing to develop this work further and who are not MFI licensed should contact XMOS to enquire about obtaining a suitable development board.
