@@ -10,7 +10,7 @@
 #include <xs1.h>
 #include <stdio.h>
 
-#include "ipod_dock_2v0.h"
+#include "aap_2v0.h"
 #include "UsbHostLLD.h"
 #include "epManager.h"
 #include "remote.h"

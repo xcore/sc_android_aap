@@ -3,8 +3,8 @@
 // University of Illinois/NCSA Open Source License posted in
 // LICENSE.txt and at <http://github.xcore.com/>
 
-#ifndef IPOD_DOCK_2V0_H_
-#define IPOD_DOCK_2V0_H_
+#ifndef AAP_2V0_H_
+#define AAP_2V0_H_
 /*------------------------------------------------------------------------------
  Include files
  ------------------------------------------------------------------------------*/
@@ -65,5 +65,5 @@
  Implementation
  ------------------------------------------------------------------------------*/
 
-#endif // IPOD_DOCK_2V0_H_
+#endif // AAP_2V0_H_
 /*============================================================================*/
