@@ -30,8 +30,6 @@ Phone application is available from the Android developer website and can be dow
 
 The IR folder contains code for processing remote commands.
 
-Please note that there might be some references to iPod - kindly ignore them.
-
 Known Issues
 ============
 
