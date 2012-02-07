@@ -1,5 +1,5 @@
-Android Accessory Protocol Using XMOS Draft
-===========================================
+Android Accessory Protocol Using XMOS
+=====================================
 
 .. toctree::
 
