@@ -1,0 +1,146 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Android Accessory Protocol &mdash; Android Accessory Protocol Using XMOS v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/xdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://mathjax.connectmv.com/MathJax.js"></script>
+    <script type="text/javascript" src="_static/xcomment.js"></script>
+    <link rel="top" title="Android Accessory Protocol Using XMOS v0.1 documentation" href="index.html" />
+    <link rel="next" title="Demo" href="03_demo.html" />
+    <link rel="prev" title="Introduction" href="01_overview.html" /> 
+
+<script>
+function setheight() {
+h1 = document.getElementById('d1').style.height;
+h2 = document.getElementById('d2').style.height;
+
+if (parseInt(h1) > parseInt(h2)) {
+document.getElementById('d2').style.height=h1 + "px";
+}
+else {
+document.getElementById('d1').style.height=h2 + "px";
+}
+
+}
+</script>
+</head>
+
+<body onload="setheight();">
+
+  
+
+    <div class="document" id='d1'>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+<div style="float: right">
+<a href="01_overview.html"
+                        title="previous chapter"> &lt&lt </a>
+<a href="03_demo.html"
+                        title="next chapter"> &gt&gt </a></p>
+</div>
+
+            
+  <div class="section" id="android-accessory-protocol">
+<h1>Android Accessory Protocol<a class="headerlink" href="#android-accessory-protocol" title="Permalink to this headline">¶</a></h1>
+<p>[1] <a class="reference external" href="http://developer.android.com/guide/topics/usb/adk.html"><span>http://developer.android.com/guide/topics/usb/adk.html</span></a></p>
+<p>Android Accessory Protocol defines how an accessory detects and sets up communication with an Android-powered device.</p>
+<p>External USB devices can communicate with Android-powered device (Version 2.3.4 and above - check!) in a special &#8216;accessory&#8217; mode. Using this, the Android-powered device can act as a &#8216;USB Device&#8217;. For simplicity, let&#8217;s call the Android-powered device as &#8216;APhone&#8217; and the connected USB accessory device as &#8216;ADock&#8217;.</p>
+<p>When APhone is in &#8216;accessory&#8217; mode:</p>
+<ul class="simple">
+<li>ADock acts as USB host, powers the bus and enumerates devices</li>
+<li>APhone acts as USB Device</li>
+</ul>
+<p>Please note that not all Android-powered devices support the &#8216;accessory&#8217; mode and this must be checked while enumeration.</p>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>[2] <a class="reference external" href="http://developer.android.com/guide/topics/usb/adk.html#accessory-protocol"><span>http://developer.android.com/guide/topics/usb/adk.html#accessory-protocol</span></a></p>
+<p>ADock must follow these steps before communicating with APhone:</p>
+<ul class="simple">
+<li>Wait for and detect connected devices</li>
+<li>Determine APhone mode support</li>
+<li>Attmept to start APhone in special accessory mode</li>
+<li>Establish communication if APhone supports mode</li>
+</ul>
+</div>
+<div class="section" id="determine-aphone-mode-support-and-start-in-accessory-mode">
+<h2>Determine APhone mode support and start in accessory mode<a class="headerlink" href="#determine-aphone-mode-support-and-start-in-accessory-mode" title="Permalink to this headline">¶</a></h2>
+<p>If the Vendor ID is 0x18D1 and Product ID is (0x2D00 | 0x2D01), then APhone supports and is in accessory mode</p>
+<p>If VID and PID do not satisfy matches then attempt to start in accessory mode by:</p>
+<ul class="simple">
+<li>Send a 51 control request (&#8216;Get Protocol&#8217;) on EP0. A non-zero return value indicates mode supported.</li>
+<li>Send ADock identification strings (Control request 52 on EP0) for appropriate application selection on APhone.</li>
+<li>Request the device to start in accessory mode by sending control request 53 on EP0.</li>
+</ul>
+<p>After sending the last control request, ADock must restart the enumeration process for this device. If at any point these steps fail, indicates that APhone does not support accessory mode and ADock must start looking for newly connected devices.</p>
+</div>
+<div class="section" id="establish-communication-with-device">
+<h2>Establish communication with device<a class="headerlink" href="#establish-communication-with-device" title="Permalink to this headline">¶</a></h2>
+<p>Once APhone is in accessory mode, set it&#8217;s configuration (0x09) to 1 (one). ADock must also find the first bulk input and output endpoints in APhone&#8217;s interface descriptor. These bulk endpoints can now be used for communication with the APhone.</p>
+</div>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" id='d2'>
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Android Accessory Protocol Using XMOS (0.1)</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_overview.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Android Accessory Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#implementation">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#determine-aphone-mode-support-and-start-in-accessory-mode">Determine APhone mode support and start in accessory mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#establish-communication-with-device">Establish communication with device</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="03_demo.html">Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_phone_app.html">APhone Application used in Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_api.html">AAP API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_todo.html">TODO</a></li>
+</ul>
+
+<div id="searchbox" style="display: none;margin-bottom: 10px;">
+  <h3>Search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+
+    <div class="footer">
+    </div>
+  </body>
+</html>
+
+
+

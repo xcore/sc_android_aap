@@ -1,0 +1,133 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Android Accessory Protocol Using XMOS &mdash; Android Accessory Protocol Using XMOS v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/xdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://mathjax.connectmv.com/MathJax.js"></script>
+    <script type="text/javascript" src="_static/xcomment.js"></script>
+    <link rel="top" title="Android Accessory Protocol Using XMOS v0.1 documentation" href="#" />
+    <link rel="next" title="Introduction" href="01_overview.html" /> 
+
+<script>
+function setheight() {
+h1 = document.getElementById('d1').style.height;
+h2 = document.getElementById('d2').style.height;
+
+if (parseInt(h1) > parseInt(h2)) {
+document.getElementById('d2').style.height=h1 + "px";
+}
+else {
+document.getElementById('d1').style.height=h2 + "px";
+}
+
+}
+</script>
+</head>
+
+<body onload="setheight();">
+
+  
+
+    <div class="document" id='d1'>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+<div style="float: right">
+<a href="01_overview.html"
+                        title="next chapter"> &gt&gt </a></p>
+</div>
+
+            
+  <div class="section" id="android-accessory-protocol-using-xmos">
+<h1>Android Accessory Protocol Using XMOS<a class="headerlink" href="#android-accessory-protocol-using-xmos" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01_overview.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_overview.html#objectives">Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02_aap.html">Android Accessory Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_aap.html#implementation">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_aap.html#determine-aphone-mode-support-and-start-in-accessory-mode">Determine APhone mode support and start in accessory mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_aap.html#establish-communication-with-device">Establish communication with device</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="03_demo.html">Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_phone_app.html">APhone Application used in Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_api.html">AAP API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="05_api.html#files">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_api.html#configuration-defines-and-constants">Configuration Defines and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_api.html#typedefs">Typedefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_api.html#prototypes">Prototypes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05_api.html#usbhost-user-vid-pid-fail">USBHost_user_vid_pid_fail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_api.html#android-ctrl">android_ctrl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_api.html#android-rx">android_rx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_api.html#application-thread">application_thread</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="06_todo.html">TODO</a></li>
+</ul>
+</div>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" id='d2'>
+        <div class="sphinxsidebarwrapper">
+<h3><a href="#">Android Accessory Protocol Using XMOS (0.1)</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01_overview.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_aap.html">Android Accessory Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_demo.html">Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_phone_app.html">APhone Application used in Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_api.html">AAP API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_todo.html">TODO</a></li>
+</ul>
+
+<div id="searchbox" style="display: none;margin-bottom: 10px;">
+  <h3>Search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+
+    <div class="footer">
+    </div>
+  </body>
+</html>
+
+
+
