@@ -31,6 +31,11 @@ Required Repositories
 
 * xcommon git\@github.com:xcore/xcommon.git
 
+Documentation
+=============
+
+See http://github.xcore.com/sc_android_aap
+
 Installation
 ============
 
